@@ -7,37 +7,37 @@ import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 const testimonials = [
   {
     quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
-    github: "roopsagar-k",
+      "Roopsagar is extremely talented in the technical skills. He owns a kind and helpful nature. The best thing about him is he is reliable and flexible. He is a Gentleman ",
+    name: "Ruqhaiya Asif",
+    title: "Computer Science Engineer",
+    github: "",
   },
   {
     quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
-    github: "roopsagar-k",
+      "It's a great time working with you 🙌.",
+    name: "Vanamuthu V",
+    title: "Full Stack Developer",
+    github: "vanamuthuV",
   },
   {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
-    github: "roopsagar-k",
-  },
-  {
-    quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
-    github: "roopsagar-k",
+    quote: "He's an hard working and ambitious person.. Given a task he gives his all effort to get it done... Above all these he's a good human being.. Always down to earth and helping in nature.. ",
+    name: "Siddhi Singh Rathor",
+    title: "Student",
+    github: "siddhisinghrathor",
   },
   {
     quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
-    github: "roopsagar-k",
+      "He is very hardworking person and also deliver work on time.",
+    name: "Utsav kumar",
+    title: "Student",
+    github: "jhautsav14",
+  },
+  {
+    quote:
+      "Good boy",
+    name: "Saad Syed Kaleemulla",
+    title: "NA",
+    github: "Saad-SYEDk",
   },
 ];
 
