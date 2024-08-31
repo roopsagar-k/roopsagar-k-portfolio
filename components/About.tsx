@@ -3,7 +3,7 @@ import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
 
 export default function About() {
   return (
-    <BentoGrid className="mx-8 md:auto-rows-[20rem]">
+    <BentoGrid className="mx-8 md:mx-auto md:auto-rows-[20rem]">
       {items.map((item, i) => (
         <>
           <BentoGridItem

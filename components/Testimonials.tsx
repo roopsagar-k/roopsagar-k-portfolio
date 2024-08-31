@@ -46,6 +46,13 @@ const testimonials = [
     title: "Student",
     github: "",
   },
+  {
+    quote:
+      "Roopsagar is a talented individual, he has experience in full stack development technologies. He is also a good team player.",
+    name: "Sairamkumar M",
+    title: "Student",
+    github: "sairamkumarm",
+  },
 ];
 
 
