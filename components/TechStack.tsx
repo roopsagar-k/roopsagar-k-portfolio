@@ -38,6 +38,12 @@ const technologies = [
       image:
         "https://www.svgrepo.com/show/439022/typescript.svg",
     },
+    {
+      id: 7,
+      name: "Python",
+      image:
+        "https://www.svgrepo.com/show/452091/python.svg",
+    },
   ];
   
 export default function TechStack() {
