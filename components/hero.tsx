@@ -15,7 +15,7 @@ export default function Hero() {
         Transforming Concepts into Seamless User Experiences.
         </h1>
         <p className="mt-4 font-semibold text-2xl text-neutral-300 max-w-lg text-center mx-auto">
-            Hi! I'm Roopsagar K, a Full Stack Web Developer from India.
+          Hi! I&apos;m Roopsagar K, a Full Stack Web Developer from India.
         </p>
         <center className="relative">
             <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[2px] mt-4 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
