@@ -21,7 +21,7 @@ export default function Home() {
         </h1>
         <Projects />
       </div>
-      <div className="about  min-h-auto mt-4 py-20" id="testimonials">
+      <div className="about  min-h-auto mt-4 py-10 md:py-20" id="testimonials">
         <h1 className="text-2xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-purple-400 bg-opacity-50">
           Words of Praise
         </h1> 

@@ -39,18 +39,25 @@ const testimonials = [
     title: "NA",
     github: "Saad-SYEDk",
   },
+  {
+    quote:
+      "He is skilled in designing attractive and user-friendly webpage structures. Proficient with modern design tools, he creates engaging and responsive layouts. His work combines visual appeal with functionality.",
+    name: "Shashmith S",
+    title: "Student",
+    github: "",
+  },
 ];
 
 
 
 export default function Testimonials() {
   return (
-    <div className="h-[30rem] mt-10 rounded-md flex flex-col antialiased bg-white dark:bg-background items-center justify-center relative overflow-hidden">
+    <div className="md:h-[30rem] mt-0 md:mt-10 rounded-md flex flex-col antialiased bg-white dark:bg-background items-center justify-center relative overflow-hidden">
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
         speed="slow"
-        className="scale-125"
+        className="scale-75 md:scale-125"
       />
     </div>
   );

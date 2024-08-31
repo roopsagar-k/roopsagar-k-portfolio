@@ -14,7 +14,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid md:grid-rows-8 grid-cols-1 md:grid-cols-5 gap-6 max-w-7xl mx-auto ",
+        "grid grid-rows-6 md:grid-rows-8 grid-cols-1 md:grid-cols-5 gap-6 max-w-7xl mx-auto ",
         className
       )}  
     >
@@ -57,7 +57,7 @@ export const BentoGridItem = ({
       {gradient ? (
         <BackgroundGradientAnimation containerClassName="w-full h-full m-0">
         <div className={cn("absolute group-hover/bento:translate-x-2 transition duration-200 p-6 font-semibold", textClassName)}>
-            <div className="font-sans font-bold text-3xl text-neutral-600 dark:text-neutral-200 mb-2 mt-2">
+            <div className="font-sans font-bold text-xl md:text-3xl text-neutral-600 dark:text-neutral-200 mb-2 mt-2">
               {title}
             </div>
             <div className="font-sans font-normal text-neutral-600 text-md dark:text-neutral-300 z-50">
@@ -67,7 +67,7 @@ export const BentoGridItem = ({
         </BackgroundGradientAnimation>
       ) : (
         <div className={cn("absolute group-hover/bento:translate-x-2 transition duration-200 p-6 font-semibold", textClassName)}>
-          <div className="font-sans font-bold text-3xl text-neutral-600 dark:text-neutral-200 mb-2 mt-2">
+          <div className={`font-sans ${globe ? " -mt-5" : "mt-2"} font-bold text-xl md:text-3xl text-neutral-600 dark:text-neutral-200 mb-12 md:mb-2`}>
             {title}
           </div>
           <div className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300">
