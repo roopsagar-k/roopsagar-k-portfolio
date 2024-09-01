@@ -27,20 +27,6 @@ const testimonials = [
   },
   {
     quote:
-      "He is very hardworking person and also deliver work on time.",
-    name: "Utsav kumar",
-    title: "Student",
-    github: "jhautsav14",
-  },
-  {
-    quote:
-      "Good boy",
-    name: "Saad Syed Kaleemulla",
-    title: "NA",
-    github: "Saad-SYEDk",
-  },
-  {
-    quote:
       "He is skilled in designing attractive and user-friendly webpage structures. Proficient with modern design tools, he creates engaging and responsive layouts. His work combines visual appeal with functionality.",
     name: "Shashmith S",
     title: "Student",
@@ -48,10 +34,24 @@ const testimonials = [
   },
   {
     quote:
+      "He is very hardworking person and also deliver work on time.",
+    name: "Utsav kumar",
+    title: "Student",
+    github: "jhautsav14",
+  },
+  {
+    quote:
       "Roopsagar is a talented individual, he has experience in full stack development technologies. He is also a good team player.",
     name: "Sairamkumar M",
     title: "Student",
     github: "sairamkumarm",
+  },
+  {
+    quote:
+      "He is diligent person, always been an helping hand for others. ",
+    name: "Roshni T S",
+    title: "Student",
+    github: "Roshni56",
   },
 ];
 
