@@ -26,7 +26,7 @@ export default function Hero() {
               Show my work
             </span>
           </Link>
-          <a href="./1HK21CS129_Roopsagar_K.pdf" download="Roopsagar_K_Resume.pdf">
+          <a href="./Roopsagar_K_Resume.pdf" download="Roopsagar_K_Resume.pdf">
             <Button className="rounded-full py-2">Download CV</Button>
           </a>
         </div>
