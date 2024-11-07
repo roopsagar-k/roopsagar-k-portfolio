@@ -5,20 +5,18 @@ export default function About() {
   return (
     <BentoGrid className="mx-8 md:mx-auto md:auto-rows-[20rem]">
       {items.map((item, i) => (
-        <>
-          <BentoGridItem
-            key={i}
-            title={item.title}
-            description={item.description}
-            img={item.img}
-            imgClassName={item.imgClassName}
-            className={item.className}
-            textClassName={item.textClassName}
-            globe={item.globe}
-            gradient={item.graident}
-            stack={item.stack}
-          />
-        </>
+        <BentoGridItem
+          key={i}
+          title={item.title}
+          description={item.description}
+          img={item.img}
+          imgClassName={item.imgClassName}
+          className={item.className}
+          textClassName={item.textClassName}
+          globe={item.globe}
+          gradient={item.graident}
+          stack={item.stack}
+        />
       ))}
     </BentoGrid>
   );
@@ -27,7 +25,8 @@ const items = [
   {
     title: "I prioritize client collaboration, fostering open communication",
     textClassName: "bottom-4 max-w-[40rem]",
-    className: "col-span-1 md:col-span-3 md:row-span-4 lg:h-[60vh] p-0 overflow-hidden",
+    className:
+      "col-span-1 md:col-span-3 md:row-span-4 lg:h-[60vh] p-0 overflow-hidden",
     img: "./computer.svg",
     imgClassName: "object-cover w-full h-full",
   },
@@ -52,7 +51,8 @@ const items = [
   },
   {
     title: "I'm very flexible with time zone communications",
-    className: "col-span-1 md:col-span-3 md:row-span-4 lg:h-[60vh] overflow-hidden",
+    className:
+      "col-span-1 md:col-span-3 md:row-span-4 lg:h-[60vh] overflow-hidden",
     textClassName: "top-0",
     globe: true,
   },
@@ -60,6 +60,6 @@ const items = [
     title: "Do you want to start a project together?",
     description: "Let's create something amazing! Reach out to me at ",
     className: "col-span-1 md:col-span-2 md:row-span-2 p-0 overflow-hidden",
-      graident: true,
+    graident: true,
   },
 ];
