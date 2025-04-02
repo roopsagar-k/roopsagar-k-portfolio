@@ -16,7 +16,11 @@ export default function FloatingNavDemo() {
     {
       name: "Testimonials",
       link: "#testimonials",
-    },
+    }
+    // ,{
+    //   name: "Blogs",
+    //   link: "/blogs"
+    // }
   ];
   return (
       <FloatingNav navItems={navItems} />

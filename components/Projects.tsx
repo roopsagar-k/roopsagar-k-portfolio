@@ -1,67 +1,131 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+"use client";
+
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-//@ts-ignore
-import { ArrowUpRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
 import { projects } from "@/data/projectsData";
 import Image from "next/image";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Code2 } from "lucide-react";
 
-export default function Component() {
+export default function Projects() {
   return (
-    <div className="w-full min-h-screen bg-background p-4 md:p-8 mt-28">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
-        {projects.map((project) => (
-          <Card
-            key={project.id}
-            className="group relative overflow-hidden bg-card/50 backdrop-blur-sm"
-          >
-            <CardHeader className="p-0">
-              <div className="relative h-[250px] md:h-[350px]">
-                <Image
-                  src={project.img}
-                  alt={project.title}
-                  fill
-                  className="w-full h-full rounded-xl object-cover object-top"
-                />
-              </div>
-            </CardHeader>
-            <CardContent className="p-6">
-              <CardTitle className="text-2xl font-bold text-card-foreground mb-3">
-                {project.title}
-              </CardTitle>
-              <p className="text-muted-foreground mb-6 line-clamp-2">
-                {project.cardDescription}
-              </p>
-              <div className="flex items-center justify-between">
-                <div className="flex -space-x-2">
-                  {project.iconLists.map((icon, index) => (
-                    <div
-                      key={index}
-                      className="relative w-10 h-10 rounded-full border border-border bg-background/50 backdrop-blur-sm flex items-center justify-center hover:z-10 transition-transform"
+    <div className="w-full min-h-screen bg-background p-4 md:p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project) => (
+            <Card key={project.id} className="overflow-hidden">
+              <CardHeader>
+                <Carousel
+                  plugins={[
+                    Autoplay({
+                      delay: 3000,
+                    }),
+                  ]}
+                  className="w-full"
+                >
+                  <CarouselContent>
+                    {project.images.map((image, index) => (
+                      <CarouselItem key={index}>
+                        <div className="relative w-full h-auto overflow-hidden rounded-lg">
+                          <Image
+                            src={image}
+                            alt={`${project.title} - Image ${index + 1}`}
+                            width={500} 
+                            height={0} 
+                            className="object-contain rounded-lg w-full h-auto"
+                            priority={index === 0}
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-2" />
+                  <CarouselNext className="right-2" />
+                </Carousel>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="flex items-start justify-between gap-4">
+                  <CardTitle className="text-xl">{project.title}</CardTitle>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8 shrink-0"
+                    asChild
+                  ></Button>
+                </div>
+                <p className="mt-2 text-sm text-foreground">
+                  {project.description}
+                </p>
+              </CardContent>
+              <CardFooter className="p-6 pt-0 flex flex-col gap-4 items-start">
+                <div className="flex flex-wrap gap-2 justify-start items-start">
+                  {project.technologies.map((tech) => (
+                    <Badge
+                      key={tech}
+                      variant="secondary"
+                      className="rounded-full"
                     >
-                      <img
-                        src={icon}
-                        alt={`Technology ${index + 1}`}
-                        className="w-6 h-6 object-contain"
-                      />
-                    </div>
+                      {tech}
+                    </Badge>
                   ))}
                 </div>
-                <div className="text-purple-500 font-medium text-xl hover:text-card-foreground group/button">
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex"
-                  >
-                    Check Live Site
-                    <ArrowUpRight className="ml-2 mt-1 w-4 h-4 transition-transform group-hover/button:translate-x-1 group-hover/button:-translate-y-1" />
-                  </a>
+                <div className="flex gap-2 w-full">
+                  {project.github && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="flex-1"
+                      asChild
+                    >
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <Code2 className="h-4 w-4" />
+                        View Code
+                      </a>
+                    </Button>
+                  )}
+                  {project.demo && (
+                    <Button
+                      variant="default"
+                      size="sm"
+                      className="flex-1"
+                      asChild
+                    >
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );

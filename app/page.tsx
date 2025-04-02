@@ -12,9 +12,9 @@ export default function Home() {
       <div className="hero min-h-screen">
         <Hero />
       </div>
-      <div className="about min-h-auto py-4" id="about">
+      {/* <div className="about min-h-auto py-4" id="about">
         <About />
-      </div>
+      </div> */}
       <div className="about  min-h-auto mt-4 py-20" id="projects">
         <h1 className="text-2xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-purple-400 bg-opacity-50">
           A small selection of recent projects
