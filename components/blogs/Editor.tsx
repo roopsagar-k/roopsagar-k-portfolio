@@ -21,8 +21,23 @@ import "highlight.js/styles/atom-one-dark.css";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { Node } from "@tiptap/core";
-import { Send, Loader2 } from "lucide-react";
+import { Send, Loader2, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { parseBlogContent } from "@/lib/utils";
+import createBlog from "@/app/actions/createBlog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const Editor = () => {
   const { toast } = useToast();
@@ -32,9 +47,37 @@ export const Editor = () => {
   const initialContent = "";
   const [htmlContent, setHTMLContent] = useState("");
   const [isPublishing, setIsPublishing] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  // Add new state variables for the form fields
+  const [tags, setTags] = useState<string[]>([]);
+  const [tagInput, setTagInput] = useState("");
+  const [thumbnailType, setThumbnailType] = useState<"url" | "file">("url");
+  const [thumbnailUrl, setThumbnailUrl] = useState("");
+  const [thumbnailFile, setThumbnailFile] = useState<File | null>(null);
+  const [isFeatured, setIsFeatured] = useState(false);
+
+  const handleAddTag = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && tagInput.trim()) {
+      e.preventDefault();
+      if (!tags.includes(tagInput.trim())) {
+        setTags([...tags, tagInput.trim()]);
+      }
+      setTagInput("");
+    }
+  };
+
+  const handleRemoveTag = (tagToRemove: string) => {
+    setTags(tags.filter((tag) => tag !== tagToRemove));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setThumbnailFile(e.target.files[0]);
+    }
+  };
 
   const handlePublish = async () => {
-    console.log("yoo ji paunchgaya")
     if (!htmlContent.trim()) {
       toast({
         title: "Empty content",
@@ -44,15 +87,77 @@ export const Editor = () => {
       return;
     }
 
+    const {
+      title,
+      excerpt,
+      sanitizedHTML: html,
+      tableOfContents,
+    } = parseBlogContent(htmlContent);
+
+    if (!title || !excerpt) {
+      toast({
+        title: "Error",
+        description: "Title and Excerpt is required. Please try again.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!tags.length) {
+      toast({
+        title: "Error",
+        description: "Please add at least one tag.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (thumbnailType === "url" && !thumbnailUrl) {
+      toast({
+        title: "Error",
+        description: "Please provide a thumbnail URL.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (thumbnailType === "file" && !thumbnailFile) {
+      toast({
+        title: "Error",
+        description: "Please upload a thumbnail image.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsPublishing(true);
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("excerpt", excerpt);
+      formData.append("thumbnailType", thumbnailType);
+
+      if (thumbnailType === "url") {
+        formData.append("thumbnailUrl", thumbnailUrl);
+      } else if (thumbnailFile) {
+        formData.append("thumbnailFile", thumbnailFile);
+      }
+
+      formData.append("isFeatured", isFeatured.toString());
+      formData.append("tags", tags.join(","));
+      formData.append("tableOfContent", JSON.stringify(tableOfContents));
+      formData.append("html", html);
+
+      const res = await createBlog(formData);
+      
       toast({
         title: "Success!",
-        description: "Your post has been published.",
+        description: `Your post has been ${
+          isFeatured ? "featured and " : ""
+        }published.`,
       });
-      console.log(htmlContent);
+      console.log(htmlContent, { isFeatured });
+      setDialogOpen(false);
     } catch (error) {
       toast({
         title: "Error",
@@ -220,19 +325,119 @@ export const Editor = () => {
         editor={editor}
       />
       <div className="fixed bottom-8 right-8">
-        <Button
-          size="lg"
-          className="shadow-lg hover:shadow-primary/25 transition-all duration-300 gap-2"
-          onClick={async () => await handlePublish()}
-          disabled={isPublishing}
-        >
-          {isPublishing ? (
-            <Loader2 className="h-5 w-5 animate-spin" />
-          ) : (
-            <Send className="h-5 w-5" />
-          )}
-          {isPublishing ? "Publishing..." : "Publish"}
-        </Button>
+        <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+          <DialogTrigger asChild>
+            <Button
+              size="lg"
+              className="shadow-lg hover:shadow-primary/25 transition-all duration-300 gap-2"
+            >
+              <Send className="h-5 w-5" />
+              Publish
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+              <DialogTitle>Publish Post</DialogTitle>
+              <DialogDescription>
+                Complete the details below to publish your post.
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="grid gap-4 py-4">
+              {/* Tags Input */}
+              <div className="grid gap-2">
+                <Label htmlFor="tags">Tags</Label>
+                <div className="flex flex-wrap gap-2 mb-2">
+                  {tags.map((tag) => (
+                    <div
+                      key={tag}
+                      className="bg-secondary text-secondary-foreground px-2 py-1 rounded-md flex items-center gap-1"
+                    >
+                      {tag}
+                      <button
+                        onClick={() => handleRemoveTag(tag)}
+                        className="text-muted-foreground hover:text-destructive"
+                        type="button"
+                      >
+                        <X className="h-3 w-3" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <Input
+                  id="tags"
+                  value={tagInput}
+                  onChange={(e) => setTagInput(e.target.value)}
+                  onKeyDown={handleAddTag}
+                  placeholder="Type a tag and press Enter"
+                />
+              </div>
+
+              {/* Thumbnail Input */}
+              <div className="grid gap-2">
+                <Label>Thumbnail</Label>
+                <Tabs
+                  defaultValue="url"
+                  onValueChange={(value) =>
+                    setThumbnailType(value as "url" | "file")
+                  }
+                  className="w-full"
+                >
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="url">URL</TabsTrigger>
+                    <TabsTrigger value="file">Upload</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="url" className="mt-2">
+                    <Input
+                      placeholder="Enter image URL"
+                      value={thumbnailUrl}
+                      onChange={(e) => setThumbnailUrl(e.target.value)}
+                    />
+                  </TabsContent>
+                  <TabsContent value="file" className="mt-2">
+                    <Input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleFileChange}
+                    />
+                    {thumbnailFile && (
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Selected: {thumbnailFile.name}
+                      </p>
+                    )}
+                  </TabsContent>
+                </Tabs>
+              </div>
+
+              {/* Featured Checkbox */}
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="featured"
+                  checked={isFeatured}
+                  onCheckedChange={(checked) =>
+                    setIsFeatured(checked as boolean)
+                  }
+                />
+                <Label htmlFor="featured">
+                  Feature this post on your profile
+                </Label>
+              </div>
+            </div>
+
+            <DialogFooter>
+              <Button
+                onClick={handlePublish}
+                disabled={isPublishing}
+                className="w-full"
+              >
+                {isPublishing ? (
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                ) : null}
+                Publish Post
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   );
