@@ -29,7 +29,16 @@ export const projects = [
     title: "Question Paper Hub - Interactive Question Paper Sharing App",
     description:
       "This app, built using ShadCN, Next.js, PostgreSQL with Drizzle ORM, and TypeScript, enables students and users to upload PDFs or manually create question papers. Key features include text extraction with OCR, LLM (Gemini) integration, interactive posts (public/private), upvotes/downvotes, comments for discussion, and instant test-taking based on uploaded papers.",
-    images: ["/qph1.png", "/qph2.png", "/qph3.png", "/qph4.png", "/qph5.png"],
+    images: [
+      "/qph1.png",
+      "/qph2.png",
+      "/qph3.png",
+      "/qph4.png",
+      "/qph5.png",
+      "/qph6.png",
+      "/qph7.png",
+      "/qph8.png",
+    ],
     technologies: [
       "Next.JS",
       "Typescript",
