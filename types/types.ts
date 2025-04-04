@@ -2,8 +2,13 @@ export interface Blog {
   title: string;
   excerpt: string;
   contentUrl: string;
-  tableOfContent: string[];
+  tableOfContents: string[];
   tags: string[];
   isFeatured: boolean;
-  thumbnail: String;
+  thumbnailUrl: string;
+  slug: string;
+  createdAt?: string | Date;
+  updatedAt?: string | Date;
+  html?: string;
+  readTime?: string;
 }

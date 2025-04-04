@@ -5,6 +5,7 @@ import { SparklesCore } from "./ui/sparkles";
 import { Input } from "./ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { FormEvent, useState } from "react";
+import { socialMedia } from "@/lib/utils";
 
 const Footer = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -63,27 +64,11 @@ const Footer = () => {
     }
   };
 
-  const socialMedia = [
-    {
-      id: 1,
-      img: "./git.svg",
-      href: "https://github.com/roopsagar-k",
-    },
-    {
-      id: 2,
-      img: "./link.svg",
-      href: "https://www.linkedin.com/in/roopsagar-k/",
-    },
-    {
-      id: 3,
-      img: "./twit.svg",
-      href: "https://x.com/RoopsagarU",
-    },
-  ];
+
 
   return (
     <footer
-      className="relative w-full md:pt-20 pb-10 px-4 md:px-28"
+      className="relative w-full md:pt-20 py-10 px-4 md:px-28"
       id="contact"
     >
       {/* Background grid */}

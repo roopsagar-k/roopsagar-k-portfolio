@@ -20,7 +20,7 @@ export async function uploadFileToR2(file: File): Promise<string> {
 
   await r2Client.send(command);
 
-  return `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com/${process.env.R2_IMAGE_BUCKET}/${uniqueFileName}`;
+  return `${process.env.R2_IMAGE_BUCKET_URL}/${uniqueFileName}`;
 }
 
 export async function uploadHtmlToR2(slug: string, htmlContent: string) {
@@ -32,5 +32,5 @@ export async function uploadHtmlToR2(slug: string, htmlContent: string) {
   });
 
   await r2Client.send(command);
-  return `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com/${process.env.R2_BUCKET_BLOGS}/${slug}.html`;
+  return `${process.env.R2_BLOG_CONTENT_BUCKET_URL}/${slug}.html`;
 }

@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { FloatingNav } from "./ui/floating-navbar";
-import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
 export default function FloatingNavDemo() {
   const navItems = [
@@ -16,14 +15,11 @@ export default function FloatingNavDemo() {
     {
       name: "Testimonials",
       link: "#testimonials",
-    }
-    // ,{
-    //   name: "Blogs",
-    //   link: "/blogs"
-    // }
+    },
+    {
+      name: "Blogs",
+      link: "/blogs",
+    },
   ];
-  return (
-      <FloatingNav navItems={navItems} />
-  );
+  return <FloatingNav navItems={navItems} />;
 }
-

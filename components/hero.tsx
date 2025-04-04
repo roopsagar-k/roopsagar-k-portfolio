@@ -7,13 +7,20 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="relative h-screen flex flex-col items-center justify-center bg-background/[0.96] antialiased bg-dot-white/[0.2] overflow-hidden mt-6">
-
+    <div className="relative h-screen flex flex-col items-center justify-center bg-background/[0.96] antialiased overflow-hidden mt-6">
+      {/* Background grid */}
+      <div className="w-full absolute left-0 bottom-0 min-h-96">
+        <img
+          src="/footer-grid.svg"
+          alt="grid"
+          className="w-full h-full opacity-50"
+        />
+      </div>
       {/* Background Spotlight */}
-      <Spotlight
+      {/* <Spotlight
         className="absolute top-0 left-0 w-full h-full md:left-1/2 md:top-1/2 transform -translate-x-1/2 -translate-y-1/2"
-        fill="white"
-      />
+        fill="gray"
+      /> */}
       {/* Content Container - Matches Projects Section */}
       <div className="relative z-10 flex flex-col items-center md:flex-row-reverse md:items-center justify-between max-w-6xl mx-auto w-full px-4 md:px-8 gap-12">
         {/* Right Section - Avatar (First on Mobile) */}
