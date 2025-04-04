@@ -17,7 +17,7 @@ import { HomeIcon } from "lucide-react";
 
 const BlogPostHero = ({ blog }: { blog: Blog }) => {
   return (
-    <div className="relative w-full h-auto min-h-[75vh] md:h-[70vh]">
+    <div className="relative w-full h-auto min-h-[80vh] md:h-[70vh]">
       {/* Breadcrumb - now properly aligned with content */}
       <div className="max-w-[80rem] mx-auto px-4 sm:px-6 md:px-8 lg:px-0 pt-8">
         <Breadcrumb>
