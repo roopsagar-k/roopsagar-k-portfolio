@@ -287,15 +287,15 @@ const BlogContent = ({ blog }: { blog: Blog }) => {
           {/* Table of Contents - Left Column */}
           <div className="md:w-1/4 md:sticky md:top-24 md:self-start md:h-[calc(100vh-6rem)] md:overflow-y-auto">
             <div className="bg-foreground/90 backdrop-blur-md rounded-lg p-4 shadow-sm">
-              <h3 className="text-2xl font-semibold text-background mb-4">
+              <h3 className="text-xl font-semibold text-background mb-4">
                 Table of Contents
               </h3>
-              <nav className="md:space-y-2">
+              <nav className="md:space-y-1">
                 {blog.tableOfContents.map((section, index) => (
                   <div key={index}>
                     <button
                       onClick={() => scrollToSection(section)}
-                      className={`text-left text-lg w-full px-2 py-1 text-accent hover:text-primary rounded hover:underline transition-colors ${
+                      className={`text-left text-base w-full px-2 py-1 text-accent hover:text-primary rounded hover:underline transition-colors ${
                         activeSection === section
                           ? "bg-foreground/10 font-medium"
                           : ""
