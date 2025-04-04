@@ -37,8 +37,6 @@ export default async function createBlog(data: FormData) {
     slug,
   };
 
-  console.log("Blog Data", JSON.stringify(blogData, null, 2));
-
   const res = await prisma.blog.create({
     data: {
       title: blogData.title,
