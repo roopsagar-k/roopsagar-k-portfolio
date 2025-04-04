@@ -297,7 +297,7 @@ const BlogContent = ({ blog }: { blog: Blog }) => {
                       onClick={() => scrollToSection(section)}
                       className={`text-left text-base w-full px-2 py-1 text-accent hover:text-primary rounded hover:underline transition-colors ${
                         activeSection === section
-                          ? "bg-foreground/10 font-medium"
+                          ? "bg-primary font-medium"
                           : ""
                       }`}
                     >

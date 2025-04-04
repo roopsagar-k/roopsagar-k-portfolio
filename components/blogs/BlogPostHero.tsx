@@ -61,7 +61,7 @@ const BlogPostHero = ({ blog }: { blog: Blog }) => {
       </div>
 
       {/* Content */}
-      <div className="relative max-w-[80rem] gap-x-8 mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-8 lg:px-0 h-full py-12 md:py-0">
+      <div className="relative max-w-[80rem] gap-x-8 mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-8 lg:px-0 h-full py-12 md:py-0 -mt-4">
         {/* Left Content */}
         <div className="w-full md:w-1/2 space-y-4 md:space-y-6">
           <div className="space-y-4">
