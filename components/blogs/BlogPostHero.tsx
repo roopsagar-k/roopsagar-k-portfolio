@@ -17,10 +17,10 @@ import { HomeIcon } from "lucide-react";
 
 const BlogPostHero = ({ blog }: { blog: Blog }) => {
   return (
-    <div className="relative w-full h-auto min-h-[75  vh] md:h-[70vh]">
-      <div className="inset-0 mt-8 max-w-[95rem] mx-auto">
-        {/* Breadcrumb */}
-        <Breadcrumb className="px-4 md:px-0">
+    <div className="relative w-full h-auto min-h-[75vh] md:h-[70vh]">
+      {/* Breadcrumb - now properly aligned with content */}
+      <div className="max-w-[95rem] mx-auto px-4 sm:px-6 md:px-8 lg:px-0 pt-8">
+        <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink
@@ -63,7 +63,7 @@ const BlogPostHero = ({ blog }: { blog: Blog }) => {
       {/* Content */}
       <div className="relative max-w-[95rem] gap-x-8 mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-8 lg:px-0 h-full py-12 md:py-0">
         {/* Left Content */}
-        <div className="w-full md:w-1/2 space-y-4 md:space-y-6 ">
+        <div className="w-full md:w-1/2 space-y-4 md:space-y-6">
           <div className="space-y-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
               {blog.title}
@@ -72,10 +72,6 @@ const BlogPostHero = ({ blog }: { blog: Blog }) => {
 
           <div className="flex flex-col space-y-3 items-start">
             <div className="flex items-center space-x-3">
-              {/* <Avatar className="w-16 h-16 sm:w-20 sm:h-20">
-                <AvatarImage src="/profile-image.jpeg" alt="Roopsagar K" />
-                <AvatarFallback>RK</AvatarFallback>
-              </Avatar> */}
               <div>
                 <p className="text-lg sm:text-xl font-semibold">Roopsagar K</p>
                 <p className="text-base sm:text-lg text-gray-400">
