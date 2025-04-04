@@ -282,7 +282,7 @@ const BlogContent = ({ blog }: { blog: Blog }) => {
 
   return (
     <div className="w-full bg-foreground py-8 px-4 md:px-8">
-      <div className="max-w-[95rem] mx-auto">
+      <div className="max-w-[80rem] mx-auto">
         <div className="flex flex-col md:flex-row gap-6">
           {/* Table of Contents - Left Column */}
           <div className="md:w-1/4 md:sticky md:top-24 md:self-start md:h-[calc(100vh-6rem)] md:overflow-y-auto">
