@@ -18,8 +18,8 @@ import { HomeIcon } from "lucide-react";
 const BlogPostHero = ({ blog }: { blog: Blog }) => {
   return (
     <div className="relative w-full h-auto min-h-[75vh] md:h-[70vh]">
-      {/* Breadcrumb - now properly aligned with content */}
-      <div className="max-w-[95rem] mx-auto px-4 sm:px-6 md:px-8 lg:px-0 pt-8">
+      {/* Breadcrumb with proper margins */}
+      <div className="max-w-[95rem] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 pt-8">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -61,7 +61,7 @@ const BlogPostHero = ({ blog }: { blog: Blog }) => {
       </div>
 
       {/* Content */}
-      <div className="relative max-w-[95rem] gap-x-8 mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-8 lg:px-0 h-full py-12 md:py-0">
+      <div className="relative max-w-[95rem] gap-x-8 mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-8 lg:px-8 h-full py-12 md:py-0">
         {/* Left Content */}
         <div className="w-full md:w-1/2 space-y-4 md:space-y-6">
           <div className="space-y-4">
