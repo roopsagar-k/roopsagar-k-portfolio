@@ -12,10 +12,10 @@ export default function FloatingNavDemo() {
       name: "Projects",
       link: "#projects",
     },
-    {
-      name: "Testimonials",
-      link: "#testimonials",
-    },
+    // {
+    //   name: "Testimonials",
+    //   link: "#testimonials",
+    // },
     {
       name: "Blogs",
       link: "/blogs",

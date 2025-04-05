@@ -13,7 +13,7 @@ export default function LatestBlogs({ latestBlogs }: { latestBlogs: Blog[] }) {
         <h2 className="max-w-8xl pl-4 mb-20 mx-auto text-xl md:text-5xl font-bold font-sans">
           Latest Blogs
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8">
           {latestBlogs.map((blog) => (
             <Link href={`blogs/${blog.slug}`} key={blog.id} className="group">
               <div className="cursor-pointer flex flex-col">

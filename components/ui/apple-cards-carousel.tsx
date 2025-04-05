@@ -26,7 +26,7 @@ type Card = {
   title: string;
   excerpt: string;
   content: React.ReactNode;
-  mins: string;
+  mins?: string;
   createdAt: string | Date;
   slug: string;
 };
@@ -108,7 +108,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           <div
             className={cn(
               "flex flex-row justify-start gap-4 pl-4",
-              "max-w-7xl mx-auto" // remove max-w-4xl if you want the carousel to span the full width of its container
+              "max-w-7xl mx-auto" 
             )}
           >
             {items.map((item, index) => (
@@ -183,15 +183,15 @@ export const Card = ({
       <div className="relative z-40 p-8 flex flex-col h-full">
         <motion.p
           layoutId={layout ? `title-${card.title}` : undefined}
-          className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2"
+          className="text-white text-lg sm:text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2"
         >
           {card.title}
         </motion.p>
         <div className="mt-auto flex items-center gap-4 text-white">
-          <div className="flex items-center gap-1">
+          {/* <div className="flex items-center gap-1">
             <Clock className="w-4 h-4" />
             <span className="text-sm">{card.mins} min read</span>
-          </div>
+          </div> */}
           <span className="text-sm">
             {new Date(card.createdAt).toLocaleDateString("en-US", {
               month: "short",

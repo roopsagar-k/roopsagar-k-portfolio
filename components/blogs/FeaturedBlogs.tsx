@@ -1,5 +1,6 @@
 import { Blog } from "@/types/types";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+import { calculateReadTime } from "@/lib/utils";
 
 const FeaturedBlogs = ({ featuredBlogs }: { featuredBlogs: Blog[] }) => {
   if (featuredBlogs.length === 0) {
@@ -15,7 +16,6 @@ const FeaturedBlogs = ({ featuredBlogs }: { featuredBlogs: Blog[] }) => {
         content: card.tableOfContents,
         src: card.thumbnailUrl,
         createdAt: card.createdAt!,
-        mins: "4min",
         slug: card.slug,
       }}
       layout={true}

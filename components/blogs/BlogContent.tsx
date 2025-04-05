@@ -82,9 +82,9 @@ const BlogContent = ({ blog }: { blog: Blog }) => {
       <div className="max-w-[80rem] mx-auto">
         <div className="flex flex-col md:flex-row gap-6">
           {/* Table of Contents - Left Column */}
-          <div className="md:w-1/4 md:sticky md:top-24 md:self-start md:h-[calc(100vh-6rem)] md:overflow-y-auto">
+          <div className="-mt-10 md:w-1/4 md:sticky md:top-24 md:self-start md:h-[calc(100vh-6rem)] md:overflow-y-auto">
             <div className="bg-background/90 backdrop-blur-md rounded-lg p-4 shadow-sm">
-              <h3 className="text-xl font-semibold text-background mb-4">
+              <h3 className="text-xl font-semibold mb-4">
                 Table of Contents
               </h3>
               <nav className="md:space-y-1">

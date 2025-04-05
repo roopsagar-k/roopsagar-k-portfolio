@@ -65,10 +65,12 @@ async function getLatestBlogs() {
 }
 
 export default async function Blogs() {
-  const [featuredBlogs, latestBlogs] = await Promise.all([
+  let [featuredBlogs, latestBlogs] = await Promise.all([
     getFeaturedBlogs(),
     getLatestBlogs(),
   ]);
+
+  
 
   return (
     <main className="relative flex justify-center items-center flex-col overflow-hidden mx-auto mt-10 mb-20 sm:px-10 px-5">
