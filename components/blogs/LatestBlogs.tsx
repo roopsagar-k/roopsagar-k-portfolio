@@ -13,7 +13,7 @@ export default function LatestBlogs({ latestBlogs }: { latestBlogs: Blog[] }) {
   return (
     <section className="py-12 md:py-20">
       <div className="px-4 md:px-6">
-        <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+        <h2 className="max-w-7xl mx-auto mb-10 text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
           Latest Blogs
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8">
