@@ -29,6 +29,7 @@ type Card = {
   mins?: string;
   createdAt: string | Date;
   slug: string;
+  readTime?: string;
 };
 
 export const CarouselContext = createContext<{
@@ -188,10 +189,10 @@ export const Card = ({
           {card.title}
         </motion.p>
         <div className="mt-auto flex items-center gap-4 text-white">
-          {/* <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1">
             <Clock className="w-4 h-4" />
-            <span className="text-sm">{card.mins} min read</span>
-          </div> */}
+            <span className="text-sm">{card.readTime}</span>
+          </div>
           <span className="text-sm">
             {new Date(card.createdAt).toLocaleDateString("en-US", {
               month: "short",

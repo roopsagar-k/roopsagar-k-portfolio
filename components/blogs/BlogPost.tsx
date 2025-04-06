@@ -6,7 +6,7 @@ import { calculateReadTime } from "@/lib/utils";
 import Footer from "../Footer";
 
 export default function BlogHero({ blog }: { blog: Blog }) {
-  blog.readTime = calculateReadTime(blog.html || "");
+  // blog.readTime = calculateReadTime(blog.html || "");
   return (
     <div>
       <BlogPostHero blog={blog} />

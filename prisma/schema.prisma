@@ -25,6 +25,7 @@ model Blog {
   tags            String[]
   isFeatured      Boolean  @default(false)
   tableOfContents String[] @default([])
+  readTime        String
 
   @@map("blog")
 }

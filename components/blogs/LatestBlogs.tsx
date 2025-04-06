@@ -36,7 +36,7 @@ export default function LatestBlogs({ latestBlogs }: { latestBlogs: Blog[] }) {
                     </p>
                     <div className="flex items-center text-sm">
                       <Clock className="mr-2 h-4 w-4" />
-                      {calculateReadTime(blog.contentUrl)} min read
+                      {blog.readTime}
                     </div>
                   </div>
 

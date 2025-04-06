@@ -1,5 +1,5 @@
 "use server";
-import { generateSlug, parseBlogContent } from "@/lib/utils";
+import { calculateReadTime, generateSlug, parseBlogContent } from "@/lib/utils";
 import { Blog } from "@/types/types";
 import { uploadFileToR2, uploadHtmlToR2 } from "@/lib/r2/r2";
 import { prisma } from "@/prisma";
@@ -37,6 +37,9 @@ export default async function createBlog(data: FormData) {
     slug,
   };
 
+  const HTMLcontent = await fetch(blogData.contentUrl);
+  const html = await HTMLcontent.text();
+
   const res = await prisma.blog.create({
     data: {
       title: blogData.title,
@@ -47,6 +50,7 @@ export default async function createBlog(data: FormData) {
       tableOfContents: blogData.tableOfContents,
       contentUrl: blogData.contentUrl,
       slug: blogData.slug,
+      readTime: calculateReadTime(html),
     },
   });
 

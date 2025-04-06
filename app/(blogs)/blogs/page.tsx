@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { HomeIcon } from "lucide-react";
 import Footer from "@/components/Footer";
+import { calculateReadTime } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: {
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
   ],
 };
 
-async function getFeaturedBlogs() {
+async function getFeaturedBlogs(){
   const featuredBlogs = await prisma.blog.findMany({
     where: {
       isFeatured: true,

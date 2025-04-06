@@ -17,6 +17,7 @@ const FeaturedBlogs = ({ featuredBlogs }: { featuredBlogs: Blog[] }) => {
         src: card.thumbnailUrl,
         createdAt: card.createdAt!,
         slug: card.slug,
+        readTime: card.readTime!,
       }}
       layout={true}
       index={index}
