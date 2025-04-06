@@ -81,7 +81,7 @@ const BlogPostHero = ({ blog }: { blog: Blog }) => {
               </div>
             </div>
             <p className="text-base sm:text-lg text-gray-400">
-              {formatDate(blog.createdAt!)} | {blog.readTime} min read
+              {formatDate(blog.createdAt!)} | {blog.readTime} 
             </p>
             <div className="flex items-center gap-4 sm:gap-6 mt-2 sm:mt-4">
               {socialMedia.map((info) => (
