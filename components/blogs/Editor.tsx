@@ -38,13 +38,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useRouter } from "next/navigation";
 
 export const Editor = () => {
   const { toast } = useToast();
   const lowlight = createLowlight(common);
   lowlight.register("javascript", js);
   lowlight.register("typescript", ts);
-  const initialContent = '';
+  const initialContent = "";
   const [htmlContent, setHTMLContent] = useState("");
   const [isPublishing, setIsPublishing] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -56,6 +57,7 @@ export const Editor = () => {
   const [thumbnailUrl, setThumbnailUrl] = useState("");
   const [thumbnailFile, setThumbnailFile] = useState<File | null>(null);
   const [isFeatured, setIsFeatured] = useState(false);
+  const router = useRouter();
 
   const handleAddTag = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && tagInput.trim()) {
@@ -156,6 +158,7 @@ export const Editor = () => {
             isFeatured ? "featured and " : ""
           }published.`,
         });
+        router.push("/blogs");
       }
       console.log(htmlContent, { isFeatured });
       setDialogOpen(false);

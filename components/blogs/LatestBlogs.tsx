@@ -7,6 +7,9 @@ import { calculateReadTime } from "@/lib/utils";
 import type { Blog } from "@prisma/client";
 
 export default function LatestBlogs({ latestBlogs }: { latestBlogs: Blog[] }) {
+  if (latestBlogs.length === 0) {
+    return <p>No featured blogs available</p>;
+  }
   return (
     <section className="py-12 md:py-20">
       <div className="px-4 md:px-6">
@@ -32,7 +35,8 @@ export default function LatestBlogs({ latestBlogs }: { latestBlogs: Blog[] }) {
                         month: "short",
                         day: "numeric",
                         year: "numeric",
-                      })}{","}
+                      })}
+                      {","}
                     </p>
                     <div className="flex items-center text-sm">
                       <Clock className="mr-2 h-4 w-4" />
