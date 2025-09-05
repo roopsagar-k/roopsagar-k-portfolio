@@ -48,7 +48,26 @@ export const projects = [
     ],
     github: "https://github.com/roopsagar-k/QuestionpaperHub",
   },
-
+  {
+    id: 7,
+    github: "https://github.com/roopsagar-k/NexChat",
+    title: "NextChat - Real-time Chat Application",
+    description:
+      "A real-time chat application using React.js, Node.js (WebSocket server), and TypeScript, with MongoDB for efficient data management and seamless communication. Designed a modern, responsive UI using ShadCN components and Tailwind CSS.",
+    images: [
+      "/nex-chat-4.png",
+      "/nex-chat-3.png",
+      "/nex-chat-1.png",
+      "/nex-chat-2.png",
+    ],
+    technologies: [
+      "React.JS",
+      "Tailwind CSS",
+      "Node JS",
+      "Mongo DB",
+      "Websockets - Socket.IO",
+    ],
+  },
   {
     id: 3,
     demo: "https://carto-toon-editor.vercel.app/",
@@ -82,6 +101,7 @@ export const projects = [
     technologies: ["EJS", "CSS", "NodeJS"],
     github: "https://github.com/roopsagar-k/anime-sphere",
   },
+
   {
     id: 5,
     github: "https://github.com/roopsagar-k/Airbnb",

@@ -25,11 +25,13 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col items-center md:flex-row-reverse md:items-center justify-between max-w-6xl mx-auto w-full px-4 md:px-8 gap-12">
         {/* Right Section - Avatar (First on Mobile) */}
         <div className="flex justify-center">
-          <div className="relative w-40 h-40 md:w-56 md:h-56 lg:w-72 lg:h-96">
+          <div className="relative w-40 h-40 md:w-56 md:h-56 lg:w-96 lg:h-96">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 blur-xl opacity-30 animate-pulse" />
             <div className="relative w-full h-full rounded-full border-2 border-purple-500/30 overflow-hidden">
               <Image
-                src="/profile-image.jpeg"
+                src={
+                  "https://media.licdn.com/dms/image/v2/D5635AQFxuTYDpeUwoQ/profile-framedphoto-shrink_400_400/B56ZiODZzaG0Ac-/0/1754729913875?e=1757689200&v=beta&t=_CAXNDxFqIjaLBol8ukgHdBtHRWxHdZ4nVQQftC4Wb4"
+                }
                 alt="Roopsagar K"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
