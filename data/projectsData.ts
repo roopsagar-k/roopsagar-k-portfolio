@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: 1,
-    demo: "https://resumetweaker.wibblit.com",
+    demo: "https://resumetweaker.vercel.app",
     title: "Resumetweaker - AI-Powered Resume & Interview Prep Tool",
     description:
       "An AI-driven platform that helps job seekers craft the perfect resume and cover letter. Features real-time AI suggestions, job-specific tailoring, and a comprehensive, adaptive AI interview preparation tool that evaluates responses and provides actionable feedback.",
