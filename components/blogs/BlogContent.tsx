@@ -176,7 +176,7 @@ const BlogContent = ({ blog }: { blog: Blog }) => {
                 <Button
                   className="w-full bg-primary text-white hover:bg-primary/90 hover:text-primary hover:underline"
                   onClick={() =>
-                    window.open("https://resumetweaker.wibblit.com", "_blank")
+                    window.open("https://resumetweaker.vercel.app", "_blank")
                   }
                 >
                   Try Resumetweaker
