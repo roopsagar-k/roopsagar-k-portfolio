@@ -30,7 +30,7 @@ export default function Hero() {
             <div className="relative w-full h-full rounded-full border-2 border-purple-500/30 overflow-hidden">
               <Image
                 src={
-                  "https://media.licdn.com/dms/image/v2/D5635AQFxuTYDpeUwoQ/profile-framedphoto-shrink_400_400/B56ZiODZzaG0Ac-/0/1754729913875?e=1757689200&v=beta&t=_CAXNDxFqIjaLBol8ukgHdBtHRWxHdZ4nVQQftC4Wb4"
+                  "https://media.licdn.com/dms/image/v2/D5635AQFxuTYDpeUwoQ/profile-framedphoto-shrink_400_400/B56ZiODZzaG0Ac-/0/1754729913875?e=1759082400&v=beta&t=wYNgZNFEAc4sefqnnpluWP5JttPl12sq0zDbFjQh6e4"
                 }
                 alt="Roopsagar K"
                 fill
