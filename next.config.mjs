@@ -12,6 +12,7 @@ const nextConfig = {
       "www.svgrepo.com",
       "80fb35fb2bb8119483bb77e1f9b0ea7c.r2.cloudflarestorage.com",
       "pub-ff08bd4303464081b6823fbbecdd329c.r2.dev",
+      "media.licdn.com",
     ],
   },
 };
